@@ -1,4 +1,5 @@
 import models.Feature;
+import models.Node;
 import models.Plan;
 
 public class MockDataGenerator {
@@ -28,5 +29,37 @@ public class MockDataGenerator {
         featureList[0] = new Feature("E1");
         featureList[1] = new Feature("F1");
         return featureList;
+    }
+
+    public Node getTree() {
+        Node root = new Node("root");
+        Node n11 = new Node("n11");
+        Node n12 = new Node("n12");
+        Node n13 = new Node("n13");
+        Node n21 = new Node("n21");
+        Node n22 = new Node("n22");
+        Node n23 = new Node("n23");
+
+        root.Children = new Node[3];
+        root.Children[0] = n11;
+        root.Children[1] = n12;
+        root.Children[2] = n13;
+
+        n11.Children = new Node[2];
+        n11.Children[0] = n21;
+        n11.Children[1] = n22;
+
+        n12.Children = null;
+
+        n13.Children = new Node[1];
+        n13.Children[0] = n23;
+
+        n21.Children = null;
+
+        n22.Children = null;
+
+        n23.Children = null;
+
+        return root;
     }
 }
